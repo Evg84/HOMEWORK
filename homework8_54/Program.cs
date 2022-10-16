@@ -1,28 +1,61 @@
-﻿Console.WriteLine("задание 56");
-            int[,] matrix = {{1,4,7,2},
-                             {5,9,2,3},
-                             {8,4,2,4},
-                             {5,2,6,7}};
- 
-            int sum = 0;
-            int index = 0;
-            for (int i = 0; i < 3; i++)
+﻿Console.Clear();
+    Console.Write("задайте количество строк в массиве: ");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    Console.Write("задайте количество строк в массиве: ");
+    int columns = Convert.ToInt32(Console.ReadLine());
+    int[,] matrix = new int[rows, columns];
+    FillArray(matrix);
+    PrintArray(matrix);
+    SortArray(matrix);
+    Console.WriteLine("Отсортированные элементы строк массива по убыванию:");
+    PrintArray(matrix);
+
+void FillArray(int[,] array)
+{
+    Random random = new Random();
+    int sizeRowsArray = array.GetLength(0);
+    int sizeColumnsArray = array.GetLength(1);
+    for (int i = 0; i < sizeRowsArray; i++)
+    {
+        for (int j = 0; j < sizeColumnsArray; j++)
+        {
+            array[i, j] = random.Next(1, 50);
+        }
+    }
+}
+
+void PrintArray(int[,] array)
+{
+    int sizeRowsArray = array.GetLength(0);
+    int sizeColumnsArray = array.GetLength(1);
+    for (int i = 0; i < sizeRowsArray; i++)
+    {
+        for (int j = 0; j < sizeColumnsArray; j++)
+        {
+            Console.Write(array[i, j] + "\t");
+        }
+        Console.WriteLine();
+    }
+}
+
+void SortArray(int[,] array)
+{
+    int sizeRowsArray = array.GetLength(0);
+    int sizeColumnsArray = array.GetLength(1);
+    for (int i = 0; i < sizeRowsArray; i++)
+    {
+        for (int j = 0; j < sizeColumnsArray; j++)
+        {
+            for (int k = j; k < sizeColumnsArray; k++)
             {
-                int temp = 0;
-                for (int j = 0; j < 4; j++)
+                if (array[i, k] > array[i, j])
                 {
-                    temp += matrix[j, i];
-                }
-                if (temp > sum)
-                {
-                    sum = temp;
-                    index = i;
+                    int temp = array[i, k];
+                    array[i, k] = array[i, j];
+                    array[i, j] = temp;
                 }
             }
-            Console.WriteLine("Строка: ");
-            for (int i = 0; i < 4; i++)
-            {
-                Console.WriteLine(matrix[i, index]);
- 
-         }  
+        }
+    }
+}
     
