@@ -1,0 +1,15 @@
+C:\Users\user\Documents\HOMEWORKS\number228\bin\Debug\net6.0\number228.exe
+C:\Users\user\Documents\HOMEWORKS\number228\bin\Debug\net6.0\number228.deps.json
+C:\Users\user\Documents\HOMEWORKS\number228\bin\Debug\net6.0\number228.runtimeconfig.json
+C:\Users\user\Documents\HOMEWORKS\number228\bin\Debug\net6.0\number228.dll
+C:\Users\user\Documents\HOMEWORKS\number228\bin\Debug\net6.0\number228.pdb
+C:\Users\user\Documents\HOMEWORKS\number228\obj\Debug\net6.0\number228.csproj.AssemblyReference.cache
+C:\Users\user\Documents\HOMEWORKS\number228\obj\Debug\net6.0\number228.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\HOMEWORKS\number228\obj\Debug\net6.0\number228.AssemblyInfoInputs.cache
+C:\Users\user\Documents\HOMEWORKS\number228\obj\Debug\net6.0\number228.AssemblyInfo.cs
+C:\Users\user\Documents\HOMEWORKS\number228\obj\Debug\net6.0\number228.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\HOMEWORKS\number228\obj\Debug\net6.0\number228.dll
+C:\Users\user\Documents\HOMEWORKS\number228\obj\Debug\net6.0\refint\number228.dll
+C:\Users\user\Documents\HOMEWORKS\number228\obj\Debug\net6.0\number228.pdb
+C:\Users\user\Documents\HOMEWORKS\number228\obj\Debug\net6.0\number228.genruntimeconfig.cache
+C:\Users\user\Documents\HOMEWORKS\number228\obj\Debug\net6.0\ref\number228.dll
