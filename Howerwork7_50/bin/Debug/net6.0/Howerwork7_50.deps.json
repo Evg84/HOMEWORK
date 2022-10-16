@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Howerwork7_50/1.0.0": {
+        "runtime": {
+          "Howerwork7_50.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Howerwork7_50/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
