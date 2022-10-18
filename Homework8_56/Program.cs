@@ -1,11 +1,19 @@
-﻿// 56 Задайте двумерный массив. Написать программу которая поменяет 
-// местами первую и послежнию строку массива
+﻿// Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет
+//  находить строку с наименьшей суммой элементов.
+// Например, задан массив:
+
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 5 2 6 7
+// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей 
+//суммой элементов: 1 строка
 
 void Zadacha56()
 {
     Random random = new Random();
-    int rows = random.Next(3, 5);
-    int colums = random.Next(3, 5);
+    int rows = random.Next(4, 8);
+    int colums = random.Next(4, 8);
     Console.WriteLine($"Размер массива {rows}x{colums}");
     int[,] matrix = new int[rows, colums];
 
@@ -13,16 +21,34 @@ void Zadacha56()
     FillArray(matrix);
     PrintArray(matrix);
 
-    int min_i = 0;
-    int max_i = rows - 1;
-
-
+    int sumMin = 0;
+    int indexMin = 0;
     for (int j = 0; j < colums; j++)
     {
-        (matrix[min_i, j], matrix[max_i, j]) = (matrix[max_i, j], matrix[min_i, j]);
+        sumMin += matrix[0, j];
     }
-    Console.WriteLine("Новый массив с заменой переменных :");
-    PrintArray(matrix);
+
+
+    for (int i = 0; i < rows; i++)
+    {
+        int sum = 0;
+        for (int j = 0; j < colums; j++)
+        {
+            sum += matrix[i, j];
+
+        }
+        Console.WriteLine($"Сумма в {i + 1} строке равна : {sum} ");
+        if (sum < sumMin)
+        {
+            sumMin = sum;
+            indexMin = i;
+
+        }
+
+    }
+    Console.WriteLine();
+    Console.WriteLine($"самая минимальная сумма {sumMin} в строке {indexMin + 1}");
+    
 }
 
 void FillArray(int[,] matrix) // метод заполнения массива
@@ -35,7 +61,7 @@ void FillArray(int[,] matrix) // метод заполнения массива
     {
         for (int j = 0; j < colums; j++)
         {
-            matrix[i, j] = random.Next(0, 11);
+            matrix[i, j] = random.Next(0, 10);
         }
     }
 }
