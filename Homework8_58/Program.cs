@@ -1,69 +1,71 @@
-﻿// Написать программу, которая в двумерном массиве заменяет строки на столбцы 
-// или сообщить, что это невозможно (в случае, если матрица не квадратная).
+﻿Console.WriteLine("Введите размеры матриц и диапазон случайных значений:");
+    int m = InputNumbers("Введите число строк 1-й матрицы: ");
+    int n = InputNumbers("Введите число столбцов 1-й матрицы (и строк 2-й): ");
+    int p = InputNumbers("Введите число столбцов 2-й матрицы: ");
+    
+    int[,] firstMartrix = new int[m, n];
+    FillArray(firstMartrix);
+    Console.WriteLine($"Первая матрица:");
+    PrintArray(firstMartrix);
 
-void Zadacha58()
+    int[,] secomdMartrix = new int[n, p];
+    FillArray(secomdMartrix);
+    Console.WriteLine($"Вторая матрица:");
+    PrintArray(secomdMartrix);
+
+    int[,] resultMatrix = new int[m, p];
+
+    MultiplyMatrix(firstMartrix, secomdMartrix, resultMatrix);
+    Console.WriteLine($"Произведение первой и второй матриц:");
+    PrintArray(resultMatrix);
+
+
+void FillArray(int[,] array)
 {
     Random random = new Random();
-    int rows = random.Next(3, 6);
-    int colums = random.Next(3, 6);
-    Console.WriteLine($"Размер массива {rows}x{colums}");
-    int[,] matrix = new int[rows, colums];
-
-    Console.WriteLine("Исходный массив :");
-    FillArray(matrix);
-    PrintArray(matrix);
-
-    if (rows == colums)
+    int sizeRowsArray = array.GetLength(0);
+    int sizeColumnsArray = array.GetLength(1);
+    for (int i = 0; i < sizeRowsArray; i++)
     {
-
-        for (int i = 0; i < rows; i++)
+        for (int j = 0; j < sizeColumnsArray; j++)
         {
-            for (int j = i; j < colums; j++)   // так как перебор начинается с I а не с нуля
-            {
-
-                (matrix[i, j], matrix[j, i]) = (matrix[j, i], matrix[i, j]);
-
-
-            }
-        }
-        Console.WriteLine("Новый массив с заменой переменных :");
-        PrintArray(matrix);
-    }
-    else
-    {
-        Console.WriteLine("Матрица не квадратная, поменять нельзя");
-    }
-
-
-}
-
-void FillArray(int[,] matrix) // метод заполнения массива
-{
-    Random random = new Random();
-    int rows = matrix.GetLength(0);
-    int colums = matrix.GetLength(1);
-
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < colums; j++)
-        {
-            matrix[i, j] = random.Next(0, 11);
+            array[i, j] = random.Next(1, 50);
         }
     }
 }
 
-void PrintArray(int[,] matrix)
+void PrintArray(int[,] array)
 {
-    int rows = matrix.GetLength(0);
-    int colums = matrix.GetLength(1);
-    for (int i = 0; i < rows; i++)
+    int sizeRowsArray = array.GetLength(0);
+    int sizeColumnsArray = array.GetLength(1);
+    for (int i = 0; i < sizeRowsArray; i++)
     {
-        for (int j = 0; j < colums; j++)
+        for (int j = 0; j < sizeColumnsArray; j++)
         {
-            Console.Write(matrix[i, j] + "\t ");
+            Console.Write(array[i, j] + "\t");
         }
         Console.WriteLine();
     }
 }
+    void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
+    {
+        for (int i = 0; i < resultMatrix.GetLength(0); i++)
+        {
+            for (int j = 0; j < resultMatrix.GetLength(1); j++)
+            {
+                int sum = 0;
+                for (int k = 0; k < firstMartrix.GetLength(1); k++)
+                {
+                    sum += firstMartrix[i, k] * secomdMartrix[k, j];
+                }
+                resultMatrix[i, j] = sum;
+            }
+        }
+    }
 
-Zadacha58();
+    int InputNumbers(string input)
+    {
+        Console.Write(input);
+        int output = Convert.ToInt32(Console.ReadLine());
+        return output;
+    }
